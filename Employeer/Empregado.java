@@ -5,9 +5,8 @@ import DateHour.Date;
 
 import java.util.Scanner;
 
-import enums.PaymentMethod;
-
 import Payment.PaymentSchedule;
+import PaymentMethod.*;
 
 public class Empregado {
 	
@@ -29,10 +28,10 @@ public class Empregado {
 	public void paymentMethod() {
 		
 		if(paymentMethod != null)
-			System.out.printf("Current method: %s\n", this.paymentMethod);
+		System.out.printf("Current method: %s\n", this.paymentMethod);
 		
 		int method = 0;
-
+		
 		do {
 			System.out.println("Enter the new method that you want:");
 			System.out.println("[1] Check by mail");
@@ -40,19 +39,24 @@ public class Empregado {
 			System.out.println("[3] Deposit in account bank");
 			method = input.nextInt();
 			if(method <= 0 || method >= 4 )
-				System.out.println("Invalid input!");
+			System.out.println("Invalid input!");
 		}
 		while(method <= 0 || method >= 4 );
-		
-		if(method == 1)
-			this.paymentMethod = PaymentMethod.CHECK_MAIL;
-		else if(method == 2)
-			this.paymentMethod = PaymentMethod.CHECK_HANDS;
-		else
-			this.paymentMethod = PaymentMethod.DEPOSIT_ACCOUNT;
-		
 	}
 	
+	public void setPaymentMethod(int method) {
+		if(method == 1)
+			this.paymentMethod = new CheckMail();
+		else if(method == 2)
+			this.paymentMethod = new CheckHand();
+		else
+			this.paymentMethod = new DepositAccount();
+	}
+
+	public int getPaymentMethod() {
+		return this.paymentMethod.toInt();
+	}
+
 	public double getServiceFee() {
 		return serviceFee;
 	}
@@ -69,9 +73,6 @@ public class Empregado {
 		return addres;
 	}
 
-	public PaymentMethod getPaymentMethod() {
-		return paymentMethod;
-	}
 
 	public double getGrossSalary() {
 		return grossSalary;
@@ -112,9 +113,6 @@ public class Empregado {
 		this.pertenceSindicato = pertenceSindicato;
 	}
 
-	public void setPaymentMethod(PaymentMethod paymentMethod) {
-		this.paymentMethod = paymentMethod;
-	}
 
 	public void setName(String name) {
 		this.name = name;
