@@ -35,7 +35,6 @@ public class Main {
 			switch(option) {
 			case 1:
 				managerEmployee.newEmployer();
-				
 				break;
 			case 2:
 				managerEmployee.editEmployee();

@@ -3,7 +3,7 @@ package Employeer;
 public class PayedByHour extends Empregado{
 
 	
-	private int extraHours=0;
+	private int extraHours = 0;
 
 	public int getExtraHours() {
 		return extraHours;

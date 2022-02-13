@@ -43,8 +43,4 @@ public class DataCard {
 		this.hourEnd = hourEnd;
 	}
 	
-	
-	
-	
-
 }

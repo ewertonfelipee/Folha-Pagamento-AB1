@@ -1,12 +1,7 @@
 package Employeer;
 import Card.Card;
 import DateHour.Date;
-
-
-import java.util.Scanner;
-
 import Payment.PaymentSchedule;
-import PaymentMethod.*;
 
 public class Empregado {
 	
@@ -15,47 +10,12 @@ public class Empregado {
 	private int numberIdentification;
 	private boolean pertenceSindicato;
 	private int numeroUnicoSindicato;
-	private double syndicalFee=0;
-	private double serviceFee=0;
+	private double syndicalFee = 0;
+	private double serviceFee = 0;
 	private Date lastPayment;
 	private double grossSalary = 2000;
 	private Card cardPoint = new Card();
-	private PaymentMethod paymentMethod = null;
 	private PaymentSchedule paymentSchedule;
-	
-	Scanner input = new Scanner(System.in);
-
-	public void paymentMethod() {
-		
-		if(paymentMethod != null)
-		System.out.printf("Current method: %s\n", this.paymentMethod);
-		
-		int method = 0;
-		
-		do {
-			System.out.println("Enter the new method that you want:");
-			System.out.println("[1] Check by mail");
-			System.out.println("[2] Check in hands");
-			System.out.println("[3] Deposit in account bank");
-			method = input.nextInt();
-			if(method <= 0 || method >= 4 )
-			System.out.println("Invalid input!");
-		}
-		while(method <= 0 || method >= 4 );
-	}
-	
-	public void setPaymentMethod(int method) {
-		if(method == 1)
-			this.paymentMethod = new CheckMail();
-		else if(method == 2)
-			this.paymentMethod = new CheckHand();
-		else
-			this.paymentMethod = new DepositAccount();
-	}
-
-	public int getPaymentMethod() {
-		return this.paymentMethod.toInt();
-	}
 
 	public double getServiceFee() {
 		return serviceFee;
@@ -148,14 +108,5 @@ public class Empregado {
 
 	public boolean isPertenceSindicato() {
 		return pertenceSindicato;
-	}
-
-	int taxaSindical() {
-		if(pertenceSindicato) 
-			return 1;
-		else
-			return 0;
-		
-	}
-	
+	}	
 }

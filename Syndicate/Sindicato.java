@@ -59,7 +59,6 @@ public class Sindicato {
 		
 		System.out.print("The fee: ");
 		currentEmployee.addServiceFee(input.nextFloat());
-		
-		
+			
 	}
 }

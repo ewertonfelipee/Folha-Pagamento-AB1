@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import DateHour.Date;
 import Payment.PaymentSchedule;
+import PaymentMethod.OptionPaymentMethod;
 import Sales.Sale;
 import Syndicate.Sindicato;
 
@@ -15,7 +16,7 @@ public class DadosEmpregados {
 	private  ArrayList<Empregado> registeredEmployees = new ArrayList<Empregado>();
 	private ArrayList<PaymentSchedule> paymentSchedules = new ArrayList<PaymentSchedule>();
 	private Sindicato syndicate = new Sindicato();
-	
+	OptionPaymentMethod optionPaymentMethod = new OptionPaymentMethod();
 	private  int identification = 1;
 	
 	Scanner input = new Scanner(System.in);
@@ -35,7 +36,7 @@ public class DadosEmpregados {
 		Empregado newEmployee = PutNewTypeEmployee();
 		newEmployee.setName(name);
 		newEmployee.setAddres(adress);
-		newEmployee.paymentMethod();
+		optionPaymentMethod.paymentMethod();
 		newEmployee.setPaymentSchedule(choosePaymentSchedule());
 		System.out.println("Today's date:");
 		newEmployee.setLastPayment(new Date());
@@ -90,10 +91,8 @@ public class DadosEmpregados {
 			return;
 		
 		currentEmployee.getCardPoint().addPoint(currentEmployee);
-		System.out.println("Finish!");
-		
+		System.out.println("Finish!");	
 	}
-	
 	
 	public Empregado searchEmployee() {
 		
@@ -147,7 +146,7 @@ public class DadosEmpregados {
 					currentEmployee = PutNewTypeEmployee();
 					break;
 				case 4:
-					currentEmployee.paymentMethod();
+					optionPaymentMethod.paymentMethod();
 					break;
 				case 5:
 					syndicate.enterOrExit(currentEmployee);
@@ -250,7 +249,6 @@ public class DadosEmpregados {
 		int[] daysPerMonth = Date.getDayspermonth();
 		
 		if(auxSchedule.isWeekly()) {
-			
 			weeks = Integer.parseInt(auxSchedule.getDay());
 			total = weeks*7;
 			if(auxSchedule.getDayWeekly().equals("Tuesday"))
@@ -276,10 +274,10 @@ public class DadosEmpregados {
                 - employee.getLastPayment().getDay();
             daysWorkeds += todayDate.getDay();
 
-        }
-        else{
+        }else{
             daysWorkeds = todayDate.getDay() - employee.getLastPayment().getDay();
         }
+
 		if(daysWorkeds >= total)
 			return true;
 		else 
