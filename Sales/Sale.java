@@ -1,7 +1,6 @@
 package Sales;
 
 import java.util.Scanner;
-
 import DateHour.Date;
 
 public class Sale {
@@ -22,15 +21,8 @@ public class Sale {
 		return date;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
 	public float getValue() {
 		return value;
 	}
 
-	public void setValue(float value) {
-		this.value = value;
-	}
 }

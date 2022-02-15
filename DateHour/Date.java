@@ -1,15 +1,12 @@
 package DateHour;
 
 import java.util.Scanner;
-
 public class Date {
-
 	
 	private int month;
 	private int day;
 	private int year;
 	
-
 	private static final int[] daysPerMonth = 
 		{0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 	
@@ -53,7 +50,6 @@ public class Date {
 			else
 				this.month = monthAux;
 			
-			
 			if(dayAux <= 0 || (dayAux > daysPerMonth[monthAux] && !(monthAux == 2 && dayAux == 29)))
 			{	
 				System.out.println("Invalid day");
@@ -63,7 +59,6 @@ public class Date {
 			else
 				this.day = dayAux;
 				
-			
 			if(yearAux < 0 )
 			{	
 				System.out.println("Invalid year");
@@ -73,7 +68,6 @@ public class Date {
 			else
 				this.year = yearAux;
 				
-			
 			if(monthAux != -1 && dayAux != -1 && yearAux != -1)
 				break;
 			
@@ -81,27 +75,18 @@ public class Date {
 			
 	}
 	
-	
 	public static int[] getDayspermonth() {
 		return daysPerMonth;
 	}
 	public int getMonth() {
 		return month;
 	}
-	public void setMonth(int month) {
-		this.month = month;
-	}
+
 	public int getDay() {
 		return day;
 	}
-	public void setDay(int day) {
-		this.day = day;
-	}
+
 	public int getYear() {
 		return year;
 	}
-	public void setYear(int year) {
-		this.year = year;
-	}
-	
 }

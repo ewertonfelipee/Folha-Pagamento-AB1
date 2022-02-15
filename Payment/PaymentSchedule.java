@@ -46,7 +46,7 @@ public class PaymentSchedule {
             do {
             	System.out.println("Day of the week ?");
                 System.out.printf("[1] Monday%n[2] Tuesday%n[3] Wednesday%n"
-                + "[4] Thursday%n[5] Friday");
+                + "[4] Thursday%n[5] Friday%n");
 
                 option = input.nextInt();
                 switch(option) {
@@ -84,46 +84,20 @@ public class PaymentSchedule {
 		return day;
 	}
 
-	public void setDay(String day) {
-		this.day = day;
-	}
-
 	public boolean isMonthly() {
 		return monthly;
-	}
-
-	public void setMonthly(boolean monthly) {
-		this.monthly = monthly;
 	}
 
 	public boolean isWeekly() {
 		return weekly;
 	}
 
-	public void setWeekly(boolean weekly) {
-		this.weekly = weekly;
-	}
-
 	public String getDayWeekly() {
 		return dayWeekly;
-	}
-
-	public void setDayWeekly(String dayWeekly) {
-		this.dayWeekly = dayWeekly;
 	}
 
 	public Scanner getInput() {
 		return input;
 	}
-
-	public void setInput(Scanner input) {
-		this.input = input;
-	}
-
-	public void setSchedule(String schedule) {
-		this.schedule = schedule;
-	}
-
-	
 
 }
