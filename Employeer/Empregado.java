@@ -6,7 +6,7 @@ import Payment.PaymentSchedule;
 public class Empregado {
 	
 	private String name;
-	private String addres;
+	private String address;
 	private int numberIdentification;
 	private boolean pertenceSindicato;
 	private int numeroUnicoSindicato;
@@ -29,10 +29,9 @@ public class Empregado {
 		return name;
 	}
 
-	public String getAddres() {
-		return addres;
+	public String getAddress() {
+		return address;
 	}
-
 
 	public double getGrossSalary() {
 		return grossSalary;
@@ -73,13 +72,12 @@ public class Empregado {
 		this.pertenceSindicato = pertenceSindicato;
 	}
 
-
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public void setAddres(String addres) {
-		this.addres = addres;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public Card getCardPoint() {

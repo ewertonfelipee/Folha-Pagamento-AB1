@@ -32,10 +32,10 @@ public class DadosEmpregados {
 		System.out.print("Enter the employee's name: ");
 		String name = input.next();
 		System.out.print("Enter the employee's address: ");
-		String adress = input.next();
+		String address = input.next();
 		Empregado newEmployee = PutNewTypeEmployee();
 		newEmployee.setName(name);
-		newEmployee.setAddres(adress);
+		newEmployee.setAddress(address);
 		optionPaymentMethod.paymentMethod();
 		newEmployee.setPaymentSchedule(choosePaymentSchedule());
 		System.out.println("Today's date:");
@@ -140,7 +140,7 @@ public class DadosEmpregados {
 					break;
 				case 2:
 					System.out.print("New addres: ");
-					currentEmployee.setAddres(input.next());
+					currentEmployee.setAddress(input.next());
 					break;
 				case 3:
 					currentEmployee = PutNewTypeEmployee();
