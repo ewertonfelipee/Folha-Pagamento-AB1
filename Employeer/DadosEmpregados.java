@@ -321,7 +321,7 @@ public class DadosEmpregados {
 	}
 	
 	private double deductions(Empregado employee) {
-		if(!employee.isPertenceSindicato())
+		if(!employee.isbelongSyndicate())
 			return 0;
 		
 		System.out.printf("Service fee: %.2f%nUnion fee: %.2f%n",employee.getServiceFee(),employee.getSyndicalFee());

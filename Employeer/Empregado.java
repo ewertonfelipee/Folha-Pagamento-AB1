@@ -8,8 +8,8 @@ public class Empregado {
 	private String name;
 	private String address;
 	private int numberIdentification;
-	private boolean pertenceSindicato;
-	private int numeroUnicoSindicato;
+	private boolean belongSyndicate;
+	private int uniqueSNumberSyndicate;
 	private double syndicalFee = 0;
 	private double serviceFee = 0;
 	private Date lastPayment;
@@ -21,14 +21,10 @@ public class Empregado {
 		return serviceFee;
 	}
 
-	public void setServiceFee(float serviceFee) {
-		this.serviceFee = serviceFee;
-	}
-
 	public String getName() {
 		return name;
 	}
-
+	
 	public String getAddress() {
 		return address;
 	}
@@ -36,40 +32,67 @@ public class Empregado {
 	public double getGrossSalary() {
 		return grossSalary;
 	}
+	
+	public Date getLastPayment() {
+		return lastPayment;
+	}
+	
+	public PaymentSchedule getPaymentSchedule() {
+		return paymentSchedule;
+	}
+		
+	public void addServiceFee(float fee) {
+		this.serviceFee += fee;
+	}
+
+	public double getSyndicalFee() {
+		return syndicalFee;
+	}
+	
+	public Card getCardPoint() {
+		return cardPoint;
+	}
+
+	public int getNumberIdentification() {
+		return this.numberIdentification;
+	}
+
+	public int getuniqueSNumberSyndicate() {
+		return this.uniqueSNumberSyndicate;
+	}
+
+	public boolean isbelongSyndicate() {
+		return belongSyndicate;
+	}
+
+	int SyndicalTax(){
+		if(belongSyndicate)
+			return 1;
+		return 0;
+	}
+	
+	public void setServiceFee(float serviceFee) {
+		this.serviceFee = serviceFee;
+	}
 
 	public void setGrossSalary(float grossSalary) {
 		this.grossSalary = grossSalary;
-	}
-
-	public Date getLastPayment() {
-		return lastPayment;
 	}
 
 	public void setLastPayment(Date lastPayment) {
 		this.lastPayment = lastPayment;
 	}
 
-	public PaymentSchedule getPaymentSchedule() {
-		return paymentSchedule;
-	}
-
 	public void setPaymentSchedule(PaymentSchedule paymentSchedule) {
 		this.paymentSchedule = paymentSchedule;
-	}
-
-	public void addServiceFee(float fee) {
-		this.serviceFee += fee;
-	}
-	public double getSyndicalFee() {
-		return syndicalFee;
 	}
 
 	public void setSyndicalFee(float syndicalFee) {
 		this.syndicalFee = syndicalFee;
 	}
 
-	public void setPertenceSindicato(boolean pertenceSindicato) {
-		this.pertenceSindicato = pertenceSindicato;
+	public void setbelongSyndicate(boolean belongSyndicate) {
+		this.belongSyndicate = belongSyndicate;
 	}
 
 	public void setName(String name) {
@@ -80,31 +103,16 @@ public class Empregado {
 		this.address = address;
 	}
 
-	public Card getCardPoint() {
-		return cardPoint;
-	}
-
 	public void setCardPoint(Card cardPoint) {
 		this.cardPoint = cardPoint;
-	}
-
-	public int getNumberIdentification() {
-		return this.numberIdentification;
 	}
 
 	public void setNumberIdentification(int numberIdentification) {
 		this.numberIdentification = numberIdentification;
 	}
 
-	public int getNumeroUnicoSindicato() {
-		return this.numeroUnicoSindicato;
+	public void setuniqueSNumberSyndicate(int uniqueSNumberSyndicate) {
+		this.uniqueSNumberSyndicate = uniqueSNumberSyndicate;
 	}
 
-	public void setNumeroUnicoSindicato(int numeroUnicoSindicato) {
-		this.numeroUnicoSindicato = numeroUnicoSindicato;
-	}
-
-	public boolean isPertenceSindicato() {
-		return pertenceSindicato;
-	}	
 }

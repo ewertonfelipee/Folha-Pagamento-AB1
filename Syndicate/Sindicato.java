@@ -17,7 +17,7 @@ public class Sindicato {
 	
 	public void editSyndicateFee(Empregado currentEmployee) {
 		
-		if(!currentEmployee.isPertenceSindicato()) {
+		if(!currentEmployee.isbelongSyndicate()) {
 			System.out.printf("The employee does not belong to the syndicate%n");
 			return;
 		}
@@ -27,11 +27,11 @@ public class Sindicato {
 	}
 	
 	public void enterOrExit(Empregado currentEmployee) {
-		if(currentEmployee.isPertenceSindicato()) {
+		if(currentEmployee.isbelongSyndicate()) {
 			
 			System.out.printf("Leave the syndicate ?%n[1] Yes [2] No");
 			if(input.nextInt() == 1) {
-				currentEmployee.setPertenceSindicato(false);
+				currentEmployee.setbelongSyndicate(false);
 				affiliatedEmployees.remove(currentEmployee);
 				
 			}
@@ -41,8 +41,8 @@ public class Sindicato {
 			if(input.nextInt() == 1) {
 				System.out.print("Union fee: ");
 				currentEmployee.setSyndicalFee(input.nextFloat());
-				currentEmployee.setPertenceSindicato(true);
-				currentEmployee.setNumeroUnicoSindicato(numeroUnicoNoSindicato++);
+				currentEmployee.setbelongSyndicate(true);
+				currentEmployee.setuniqueSNumberSyndicate(numeroUnicoNoSindicato++);
 				affiliatedEmployees.add(currentEmployee);
 				
 			}
@@ -52,7 +52,7 @@ public class Sindicato {
 	}
 	public static void throwServiceFee(Empregado currentEmployee) {
 		
-		if(!currentEmployee.isPertenceSindicato()) {
+		if(!currentEmployee.isbelongSyndicate()) {
 			System.out.printf("The employee does not belong to the syndicate%n");
 			return;
 		}
