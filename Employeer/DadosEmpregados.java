@@ -139,7 +139,7 @@ public class DadosEmpregados {
 					currentEmployee.setName(input.next());
 					break;
 				case 2:
-					System.out.print("New addres: ");
+					System.out.print("New address: ");
 					currentEmployee.setAddress(input.next());
 					break;
 				case 3:
