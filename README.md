@@ -1,15 +1,15 @@
 # Folha-Pagamento-Refatorada
 
 Code smells encontrados:
-    Data Class
-    Feature Envy
+    Data Class,
+    Feature Envy,
     Speculative Generality
 
 Padrões Aplicados:
-    Move Method
-    Remove Setting Methods
-    Composite
-    State
+    Move Method,
+    Remove Setting Methods,
+    Composite,
+    State,
 
 O code Smell Data Class foi encontrado nas classes Date.java, Hour.java, Sale.java
 que são classes que só têm atributos, construtor getters e setters, com isso, apliquei
