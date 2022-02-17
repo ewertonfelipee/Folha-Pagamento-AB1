@@ -3,7 +3,7 @@ import Card.Card;
 import DateHour.Date;
 import Payment.PaymentSchedule;
 
-public class Empregado {
+public class CompositeEmpregado  implements ComponentEmpregado{
 	
 	private String name;
 	private String address;
@@ -113,6 +113,18 @@ public class Empregado {
 
 	public void setuniqueSNumberSyndicate(int uniqueSNumberSyndicate) {
 		this.uniqueSNumberSyndicate = uniqueSNumberSyndicate;
+	}
+
+	@Override
+	public int getExtraHours() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getPercentageSales() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

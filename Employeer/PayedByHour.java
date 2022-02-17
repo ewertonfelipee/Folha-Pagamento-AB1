@@ -1,6 +1,7 @@
 package Employeer;
 
-public class PayedByHour extends Empregado{
+
+public class PayedByHour extends CompositeEmpregado{
 
 	
 	private int extraHours = 0;
@@ -16,6 +17,11 @@ public class PayedByHour extends Empregado{
 	public void setExtraHours(int extraHours) {
 		this.extraHours = extraHours;
 	}
-	
-	
+
+	@Override
+	public double getPercentageSales() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

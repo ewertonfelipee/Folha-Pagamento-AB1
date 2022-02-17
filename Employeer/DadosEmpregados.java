@@ -1,6 +1,7 @@
 package Employeer;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import DateHour.Date;
 import Payment.PaymentSchedule;
@@ -8,12 +9,9 @@ import PaymentMethod.OptionPaymentMethod;
 import Sales.Sale;
 import Syndicate.Sindicato;
 
-import java.util.Scanner;
-
-
-public class DadosEmpregados {
+public class DadosEmpregados{
 	
-	private  ArrayList<Empregado> registeredEmployees = new ArrayList<Empregado>();
+	private  ArrayList<CompositeEmpregado> registeredEmployees = new ArrayList<CompositeEmpregado>();
 	private ArrayList<PaymentSchedule> paymentSchedules = new ArrayList<PaymentSchedule>();
 	private Sindicato syndicate = new Sindicato();
 	OptionPaymentMethod optionPaymentMethod = new OptionPaymentMethod();
@@ -33,7 +31,7 @@ public class DadosEmpregados {
 		String name = input.next();
 		System.out.print("Enter the employee's address: ");
 		String address = input.next();
-		Empregado newEmployee = PutNewTypeEmployee();
+		CompositeEmpregado newEmployee = PutNewTypeEmployee();
 		newEmployee.setName(name);
 		newEmployee.setAddress(address);
 		optionPaymentMethod.paymentMethod();
@@ -47,7 +45,7 @@ public class DadosEmpregados {
 		
 	}
 	
-	private Empregado PutNewTypeEmployee() {
+	private CompositeEmpregado PutNewTypeEmployee() {
 		int typeEmployee = 0;
 		
 		do {
@@ -86,23 +84,23 @@ public class DadosEmpregados {
 	
 	public void addCardPoint() {
 		
-		Empregado currentEmployee = searchEmployee();
+		CompositeEmpregado currentEmployee = searchEmployee();
 		if(currentEmployee == null)
 			return;
 		
-		currentEmployee.getCardPoint().addPoint(currentEmployee);
+		currentEmployee.getCardPoint().addPointCard(currentEmployee);
 		System.out.println("Finish!");	
 	}
 	
-	public Empregado searchEmployee() {
+	public CompositeEmpregado searchEmployee() {
 		
-		Empregado currentEmployee = null;
+		CompositeEmpregado currentEmployee = null;
 		do {
 			System.out.print("Enter the employee identification: ");
 			int identificationAux = input.nextInt();
 			currentEmployee = null;
 			
-			for(Empregado employeeAux : registeredEmployees) {
+			for(CompositeEmpregado employeeAux : registeredEmployees) {
 				if(employeeAux.getNumberIdentification() == identificationAux)
 					currentEmployee = employeeAux;		
 			}
@@ -120,7 +118,7 @@ public class DadosEmpregados {
 	
 	public void editEmployee() {
 		
-		Empregado currentEmployee = searchEmployee();
+		CompositeEmpregado currentEmployee = searchEmployee();
 		if(currentEmployee == null)
 			return;
 		
@@ -174,7 +172,7 @@ public class DadosEmpregados {
 	
 	public void addSalesResult() {
 		
-		Empregado currentEmployee = searchEmployee();
+		CompositeEmpregado currentEmployee = searchEmployee();
 		if(currentEmployee == null)
 			return;
 		if(!(currentEmployee instanceof Comissioned)){
@@ -187,7 +185,7 @@ public class DadosEmpregados {
 	
 	public void serviceFee() {
 		
-		Empregado currentEmployee = searchEmployee();
+		CompositeEmpregado currentEmployee = searchEmployee();
 		if(currentEmployee == null)
 			return;
 		
@@ -216,7 +214,7 @@ public class DadosEmpregados {
 	
 	public void paymentSchedule() {
 		
-		Empregado currentEmployee = searchEmployee();
+		CompositeEmpregado currentEmployee = searchEmployee();
 		if(currentEmployee == null)
 			return;
 		
@@ -233,7 +231,7 @@ public class DadosEmpregados {
 		System.out.println("Today's date:");
 		Date todayDate = new Date();
 		
-		for(Empregado auxEmployee : registeredEmployees ) {
+		for(CompositeEmpregado auxEmployee : registeredEmployees ) {
 			if(mustBePaid(auxEmployee,todayDate)) {
 				pay(auxEmployee);
 				auxEmployee.setLastPayment(todayDate);
@@ -241,7 +239,7 @@ public class DadosEmpregados {
 		}
 	}
 	
-	private boolean mustBePaid(Empregado employee,Date todayDate) {
+	private boolean mustBePaid(CompositeEmpregado employee,Date todayDate) {
 		PaymentSchedule auxSchedule = employee.getPaymentSchedule();
 		int weeks;
 		int total;
@@ -285,7 +283,7 @@ public class DadosEmpregados {
 		
 	}
 	
-	private void pay(Empregado employee) {
+	private void pay(CompositeEmpregado employee) {
 		
 		System.out.printf("Name: %s%nIdentification: %d%n",employee.getName(),employee.getNumberIdentification());
 		
@@ -311,7 +309,7 @@ public class DadosEmpregados {
 		System.out.printf("Net salary: %.2f%n", employee.getGrossSalary() + extraHourValue
 				+ salesValue - deductios);
 	}
-	private float totalSalesValue(Empregado employee) {
+	private float totalSalesValue(CompositeEmpregado employee) {
 		
 		float total=0;
 		for(Sale auxSale : ((Comissioned) employee).getSales())
@@ -320,7 +318,7 @@ public class DadosEmpregados {
 		return total;
 	}
 	
-	private double deductions(Empregado employee) {
+	private double deductions(CompositeEmpregado employee) {
 		if(!employee.isbelongSyndicate())
 			return 0;
 		

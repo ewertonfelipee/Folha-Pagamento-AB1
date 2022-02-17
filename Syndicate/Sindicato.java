@@ -3,19 +3,19 @@ package Syndicate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Employeer.Empregado;
+import Employeer.CompositeEmpregado;
 
 
 public class Sindicato {
 	
-	private static ArrayList<Empregado> affiliatedEmployees = new ArrayList<Empregado>();
+	private static ArrayList<CompositeEmpregado> affiliatedEmployees = new ArrayList<CompositeEmpregado>();
 	private static int numeroUnicoNoSindicato = 1;
 	//se for usar pra saber a quantidade de empregadosdo sindicato, lembrar de diminuir -1
 	
 	
 	static Scanner input = new Scanner(System.in);
 	
-	public void editSyndicateFee(Empregado currentEmployee) {
+	public void editSyndicateFee(CompositeEmpregado currentEmployee) {
 		
 		if(!currentEmployee.isbelongSyndicate()) {
 			System.out.printf("The employee does not belong to the syndicate%n");
@@ -26,7 +26,7 @@ public class Sindicato {
 		currentEmployee.setSyndicalFee(input.nextFloat());		
 	}
 	
-	public void enterOrExit(Empregado currentEmployee) {
+	public void enterOrExit(CompositeEmpregado currentEmployee) {
 		if(currentEmployee.isbelongSyndicate()) {
 			
 			System.out.printf("Leave the syndicate ?%n[1] Yes [2] No");
@@ -50,7 +50,7 @@ public class Sindicato {
 		
 		
 	}
-	public static void throwServiceFee(Empregado currentEmployee) {
+	public static void throwServiceFee(CompositeEmpregado currentEmployee) {
 		
 		if(!currentEmployee.isbelongSyndicate()) {
 			System.out.printf("The employee does not belong to the syndicate%n");
