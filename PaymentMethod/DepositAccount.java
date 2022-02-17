@@ -1,6 +1,6 @@
 package PaymentMethod;
 
-public class DepositAccount implements PaymentMethod {
+public class DepositAccount implements StatePaymentMethod {
 
     @Override
     public int toInt() {

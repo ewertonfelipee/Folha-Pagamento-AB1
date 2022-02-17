@@ -1,6 +1,6 @@
 package PaymentMethod;
 
-public class CheckHand implements PaymentMethod {
+public class CheckHand implements StatePaymentMethod {
 
     @Override
     public int toInt() {

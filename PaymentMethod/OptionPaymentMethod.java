@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class OptionPaymentMethod {
 
-    private PaymentMethod paymentMethod = null;
+    private StatePaymentMethod paymentMethod = null;
     Scanner input = new Scanner(System.in);
 
     public void paymentMethod() {

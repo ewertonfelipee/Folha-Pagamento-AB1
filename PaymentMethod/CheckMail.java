@@ -1,6 +1,6 @@
 package PaymentMethod;
 
-public class CheckMail implements PaymentMethod{
+public class CheckMail implements StatePaymentMethod{
 
     @Override
     public int toInt() {
